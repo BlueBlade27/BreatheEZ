@@ -9,17 +9,17 @@ const Navbar = () => {
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  };
+  };  
 
   return (
     <nav className="w-full flex items-center py-5 fixed top-0 z-20 bg-blue-600">
       <div className="w-full flex justify-between items-center max-w-7xl mx-auto bg-blue-600">
       <Link to="/" className="flex items-center gap-3 bg-blue-600">
-        <img src={logoBez} alt="logo" className="w-16 h-16 object-cover rounded-full border-2 border-white" />
-        <p className="text-white text-[30px] font-bold cursor-pointer flex bg-blue-600 font-playwrite">BreatheEZ</p>
-        </Link>
+        <img src={logoBez} alt="logo" className="w-14 h-14 object-cover rounded-full border-2 border-white" />
+        <p className="text-white text-[27px] font-bold cursor-pointer flex bg-blue-600" style={{ fontFamily: "'Playwrite AU QLD', sans-serif" }}>BreatheEZ</p>
+      </Link>
 
 
         <ul className="list-none hidden sm:flex flex-row gap-10 bg-blue-600">

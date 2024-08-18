@@ -28,6 +28,15 @@ const Airquality = () => {
     return 'bg-purple-500';
   };
 
+  const getAQICategory = (aqi) => {
+    if (aqi <= 50) return 'Good';
+    if (aqi <= 100) return 'Moderate';
+    if (aqi <= 150) return 'Unhealthy for Sensitive Groups';
+    if (aqi <= 200) return 'Unhealthy';
+    if (aqi <= 300) return 'Very Unhealthy';
+    return 'Hazardous';
+  };
+
   if (loading) {
     return (
       <div className="h-screen flex items-center justify-center bg-gradient-to-t from-blue-400 to-blue-600">
@@ -46,14 +55,15 @@ const Airquality = () => {
               <span className="text-5xl font-bold text-white">{Math.round(weatherData.aqi)}</span>
             </div>
             <p className="text-center text-white mt-2">Air quality: AQI (PM2.5)</p>
+            <p className="text-center text-white mt-2 text-lg font-semibold">{getAQICategory(weatherData.aqi)}</p> {/* AQI Category */}
           </div>
           <div className="text-white">
-            <p className="text-lg"><i className="fas fa-thermometer-half mr-2"></i>temperature: {weatherData.temperature}°C</p>
-            <p className="text-lg"><i className="fas fa-wind mr-2"></i> wind: {weatherData.wind} kph</p>
+            <p className="text-lg"><i className="fas fa-thermometer-half mr-2"></i>Temperature: {weatherData.temperature}°C</p>
+            <p className="text-lg"><i className="fas fa-wind mr-2"></i>Wind: {weatherData.wind} kph</p>
           </div>
           <div className="text-white">
-            <p className="text-lg"><i className="fas fa-tint mr-2"></i>humidity: {weatherData.humidity}%</p>
-            <p className="text-lg"><i className="fas fa-cloud mr-2"></i>condition: {weatherData.condition}</p>
+            <p className="text-lg"><i className="fas fa-tint mr-2"></i>Humidity: {weatherData.humidity}%</p>
+            <p className="text-lg"><i className="fas fa-cloud mr-2"></i>Condition: {weatherData.condition}</p>
           </div>
         </div>
       </div>
